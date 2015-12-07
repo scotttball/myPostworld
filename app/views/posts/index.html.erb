@@ -1,0 +1,13 @@
+<div class="valign-wrapper">
+ <ul>
+<% @posts.each do |post| %>
+<br /> // <%= link_to post.user.name, post.user if post.user %> //
+  <li><%= post.body %></li>
+  <ul>
+    <% post.comments.each do |comment| %>
+    <br /><li><%= comment.body %></li>
+    <% end %>
+  </ul>
+<% end %>
+</ul>
+</div>

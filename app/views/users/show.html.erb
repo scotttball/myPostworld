@@ -1,0 +1,12 @@
+<h1><%= @user.name %> : Posts</h1>
+<ul>
+<% @posts.each do |post| %>
+    <li><%= post.body %> // <%= link_to 'Show Post', post_path(post) %> | <%= link_to 'Edit Post', edit_post_path(post) %> | <%= link_to 'Delete Post', post_path(post), method: :delete %> </li>
+    <ul>
+    <% post.comments.each do |comment| %>
+    <li><%= comment.body %></li>
+    <% end %>
+    </ul>
+<% end %>
+</ul>
+<%= link_to 'Add New Post', new_post_path(user_id: @user.id) %>

@@ -1,0 +1,13 @@
+<h1>Users of myPostworld</h1>
+<ul>
+<% @users.each do |user| %>
+  <li><%= user.name %> // <%= link_to 'Show User', user_path(user) %> | <%= link_to 'Edit User', edit_user_path(user) %> | <%= link_to 'Delete User', user_path(user), method: :delete %>
+    <ul>
+    <% user.posts.each do |post| %>
+    <li><%= post.body %></li>
+    <% end %>
+    </ul>
+  </li>
+<% end %>
+</ul>
+<%= link_to 'Add New User', new_user_path %>
